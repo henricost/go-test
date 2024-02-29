@@ -12,17 +12,17 @@ on:
 jobs:
 
   test:
-    runs-on: ubuntu-latest
-    strategy:
+    runs-on: $[[ matrix.so_version ]]
+    strategy:  
       matrix:
-        go_version: ['1.18', '1.17', '>=1.18']
+        so_version: [ubuntu-latest, windows-latest, macos-latest]        
     steps:
     - uses: actions/checkout@v3
 
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: ${{ matrix.go_version }}
+        go-version: '1.18'
 
     - name: Build-DB
       run: docker-compose build
