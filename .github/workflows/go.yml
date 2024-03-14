@@ -12,7 +12,8 @@ on:
 jobs:
 
   test:
-    runs-on: ${{ matrix.so_version }}
+    runs-on: ubuntu-latest
+    # para testar em mais de uma versão de SO UBUNTU ${{ matrix.so_version }}
     env:
       HOST: localhost
       PORT: 5432
